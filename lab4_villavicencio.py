@@ -36,8 +36,9 @@ print("\n--------------- Example 6: Store data in a dictionary --------------")
 phrase = "to be or not to be"
 phrase = phrase.split()
 print(f"Phrase after the split method {phrase}")
-word_count_dict = {}            #empty dictionary 
-#for loop to count how many times  a word is in the dictionary 
+word_count_dict = {}  # empty dictionary 
+
+# for loop to count how many times a word is in the dictionary 
 for word in phrase:
     if word not in word_count_dict:
         word_count_dict[word] = 1
@@ -47,27 +48,44 @@ for word in phrase:
 print(word_count_dict)
 
 print("\n ---------- Exercise ----------------")
-# given the following user list, find the number of users that use 'gmail', 'hotmail', 'yahoo', and 'swamp'
 
-user ="""
+# Given the following user list, find the number of users that use 'gmail', 'hotmail', 'yahoo', and 'swamp'
+user = """
     peter = ppan@gmail.com
     diana = d@gmail.com
     Kent = ckent@hotmail.com
     Bruce = bwayne@hotmail.com
     tony = tstark@gmail.com
     shrek = shrek@swamp.com
+    harry = harry.potter@swamp.com
+    tony_stark = tony.stark@hotmail.com
+    bruce_wayne = bruce.wayne@gmail.com
+    neo = neo@gmail.com
+    joker = joker@hotmail.com
+    frodo = frodo.baggins@swamp.com
+    vader = darth.vader@hotmail.com
+    yoda = yoda@swamp.com
+    terminator = terminator@gmail.com
+    gandalf = gandalf.thegrey@swamp.com
+    buzz = buzz.lightyear@gmail.com
+    agent_smith = agent.smith@hotmail.com
 """
 
-user = user.split()
-#test
-user1 = user[2]
-check1 = '@hotmail' in user1
-print(check1)
-#loop through each word
-#save the count of emails in a dictionary
+# Split user string into entries by line
+user_list = user.strip().split('\n')
 
-print("\n--------------- Example 7: Adding data --------------")
+# Initialize dictionary for domain counts
+domain_count_dict = {'gmail': 0, 'hotmail': 0, 'yahoo': 0, 'swamp': 0}
 
-car["Owner"] = "Michael"
-car["Warranty"] = "5 years"
-print(f"Dictionary after adding new items: {car}")
+# Loop through each email entry
+for entry in user_list:
+    if '=' in entry:  # Check if '=' is in the entry
+        # Clean up the entry and extract the email
+        email = entry.split('=')[1].strip()
+        if '@' in email:  
+            domain = email.split('@')[1].split('.')[0] 
+            if domain in domain_count_dict:
+                domain_count_dict[domain] += 1
+
+# Print domain counts
+print(domain_count_dict)
