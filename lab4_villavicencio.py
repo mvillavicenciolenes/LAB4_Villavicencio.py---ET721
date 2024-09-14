@@ -1,0 +1,73 @@
+"""
+Michael Villavicencio
+ET 721
+"""
+
+print("\n--------------- Example 1: Dictionary ---------------------")
+car = {
+    "Brand": "Tesla",
+    "Model": "S",
+    "Year": 2023,
+    "Color": "Red",
+    "Price": 79999,
+    "Electric": True
+}
+
+print(f"Best car of 2022 = {car['Brand']}, model = {car['Model']}")
+
+print("\n-------- Example 2: Loop through each key in a dictionary -----------")
+for k in car:
+    print(f"{k} has a value of {car[k]}")  # print each key
+
+print("\n--------------- Example 3: Amount of key-pair in a dictionary --------------")
+print(f"Dictionary has {len(car)} key-value pairs")
+
+print("\n--------------- Example 4: Remove a key-value pair from a dictionary --------------")
+car.pop("Year")
+print(f"Dictionary after removing the 'Year' key: {car}")
+for k in car:
+    print(f"{k}, {car[k]}")
+
+print("\n--------------- Example 5: Get the value of a key --------------")
+look_key = "last_visit"
+print(f"The value of key {look_key} is {car.get(look_key)}")
+
+print("\n--------------- Example 6: Store data in a dictionary --------------")
+phrase = "to be or not to be"
+phrase = phrase.split()
+print(f"Phrase after the split method {phrase}")
+word_count_dict = {}            #empty dictionary 
+#for loop to count how many times  a word is in the dictionary 
+for word in phrase:
+    if word not in word_count_dict:
+        word_count_dict[word] = 1
+    else:
+        word_count_dict[word] += 1
+
+print(word_count_dict)
+
+print("\n ---------- Exercise ----------------")
+# given the following user list, find the number of users that use 'gmail', 'hotmail', 'yahoo', and 'swamp'
+
+user ="""
+    peter = ppan@gmail.com
+    diana = d@gmail.com
+    Kent = ckent@hotmail.com
+    Bruce = bwayne@hotmail.com
+    tony = tstark@gmail.com
+    shrek = shrek@swamp.com
+"""
+
+user = user.split()
+#test
+user1 = user[2]
+check1 = '@hotmail' in user1
+print(check1)
+#loop through each word
+#save the count of emails in a dictionary
+
+print("\n--------------- Example 7: Adding data --------------")
+
+car["Owner"] = "Michael"
+car["Warranty"] = "5 years"
+print(f"Dictionary after adding new items: {car}")
